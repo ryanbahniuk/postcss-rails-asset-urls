@@ -1,5 +1,5 @@
 {
-    "name": "rails-asset-urls",
+    "name": "postcss-rails-asset-urls",
     "version": "0.0.1",
     "description": "PostCSS plugin that swaps out CSS urls for Rails asset helpers.",
     "keywords": ["postcss", "css", "postcss-plugin", "rails", "rails assets"],
@@ -7,7 +7,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url":  "https://github.com/ryanbahniuk/rails-asset-urls.git"
+        "url":  "https://github.com/ryanbahniuk/postcss-rails-asset-urls.git"
     },
     "dependencies": {
         "postcss": "^4.1.9"

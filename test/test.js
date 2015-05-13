@@ -13,7 +13,7 @@ var test = function (input, output, opts, done) {
     });
 };
 
-describe('rails-asset-urls', function () {
+describe('postcss-rails-asset-urls', function () {
 
     /* Write tests here
 
