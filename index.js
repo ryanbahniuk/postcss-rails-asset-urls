@@ -1,6 +1,6 @@
 var postcss = require('postcss');
 
-module.exports = postcss.plugin('PLUGIN_NAME', function (opts) {
+module.exports = postcss.plugin('rails-asset-urls', function (opts) {
     opts = opts || {};
 
     // Work with options here

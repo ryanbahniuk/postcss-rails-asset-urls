@@ -1,10 +1,10 @@
 # PLUGIN_TITLE [![Build Status][ci-img]][ci]
 
-[PostCSS] plugin PLUGIN_DESC.
+[PostCSS] plugin PostCSS plugin that swaps out CSS urls for Rails asset helpers..
 
 [PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/GITHUB_NAME/PLUGIN_NAME.svg
-[ci]:      https://travis-ci.org/GITHUB_NAME/PLUGIN_NAME
+[ci-img]:  https://travis-ci.org/ryanbahniuk/rails-asset-urls.svg
+[ci]:      https://travis-ci.org/ryanbahniuk/rails-asset-urls
 
 ```css
 .foo {
@@ -21,7 +21,7 @@
 ## Usage
 
 ```js
-postcss([ require('PLUGIN_NAME') ])
+postcss([ require('rails-asset-urls') ])
 ```
 
 See [PostCSS] docs for examples for your environment.
