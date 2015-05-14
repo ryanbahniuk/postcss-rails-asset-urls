@@ -1,24 +1,28 @@
 {
-    "name": "postcss-rails-asset-urls",
-    "version": "0.0.1",
-    "description": "PostCSS plugin that swaps out CSS urls for Rails asset helpers.",
-    "keywords": ["postcss", "css", "postcss-plugin", "rails", "rails assets"],
-    "author": "Ryan Bahniuk <ryan.bahniuk@gmail.com>",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url":  "https://github.com/ryanbahniuk/postcss-rails-asset-urls.git"
-    },
-    "dependencies": {
-        "postcss": "^4.1.9"
-    },
-    "devDependencies": {
-        "gulp-eslint": "^0.12.0",
-        "gulp-mocha":  "^2.0.1",
-        "chai":        "^2.3.0",
-        "gulp":        "^3.8.11"
-    },
-    "scripts": {
-        "test": "gulp"
-    }
+  "name": "postcss-rails-asset-urls",
+  "version": "0.0.1",
+  "description": "PostCSS plugin that swaps out CSS urls for Rails asset helpers.",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "rails",
+    "rails assets"
+  ],
+  "author": "Ryan Bahniuk <ryan.bahniuk@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanbahniuk/postcss-rails-asset-urls.git"
+  },
+  "dependencies": {
+    "postcss": "^4.1.9"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "should": "^5.0.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha"
+  }
 }

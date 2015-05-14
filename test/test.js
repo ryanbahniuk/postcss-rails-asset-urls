@@ -1,24 +1,17 @@
+var should = require('should');
 var postcss = require('postcss');
-var expect  = require('chai').expect;
+var fs = require('fs');
+var railsAssetUrls = require('../index.js');
 
-var plugin = require('../');
+describe('test', function() {
 
-var test = function (input, output, opts, done) {
-    postcss([ plugin(opts) ]).process(input).then(function (result) {
-        expect(result.css).to.eql(output);
-        expect(result.warnings()).to.be.empty;
-        done();
-    }).catch(function (error) {
-        done(error);
-    });
-};
+  it('should replace url calls with asset-url', function() {
+    var input = fs.readFileSync('./test/input.css', 'utf-8');
+    var expected = fs.readFileSync('./test/expected.css', 'utf-8');
 
-describe('postcss-rails-asset-urls', function () {
+    var out = postcss(railsAssetUrls()).process(input);
 
-    /* Write tests here
-
-    it('does something', function (done) {
-        test('a{ }', 'a{ }', { }, done);
-    });*/
+    out.css.should.equal(expected, 'test failed');
+  });
 
 });

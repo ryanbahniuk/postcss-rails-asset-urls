@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Test;
+  src: asset-url('font.woff') format('woff'),
+      asset-url('font.svg') format('svg');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Serif;
+  src: asset-url('second_font.eot') format('eot'),
+      asset-url('second_font.ttf') format('ttf');
+  font-style: normal;
+  font-weight: 700;
+}
+
+.image {
+  background-image: asset-url('assets/images/bg.png');
+}
