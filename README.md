@@ -47,5 +47,5 @@ to cover it.
 MIT © Ryan Bahniuk
 
 [ci]:      https://travis-ci.org/ryanbahniuk/postcss-rails-asset-urls
-[npm]:     http://badge.fury.io/js/postcss-discard-font-face
+[npm]:     https://www.npmjs.com/package/postcss-rails-asset-urls
 [postcss]: https://github.com/postcss/postcss
