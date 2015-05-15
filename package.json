@@ -19,8 +19,7 @@
     "postcss": "^4.1.10"
   },
   "devDependencies": {
-    "mocha": "^2.2.4",
-    "should": "^5.0.0"
+    "mocha": "^2.2.4"
   },
   "scripts": {
     "test": "NODE_ENV=test mocha"

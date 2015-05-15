@@ -1,4 +1,4 @@
-var should = require('should');
+var assert = require('assert');
 var postcss = require('postcss');
 var fs = require('fs');
 var railsAssetUrls = require('../index.js');
@@ -10,6 +10,6 @@ describe('test', function() {
 
     var out = postcss(railsAssetUrls()).process(input);
 
-    out.css.should.equal(expected, 'test failed');
+    assert.equal(out.css, expected, 'test failed');
   });
 });
