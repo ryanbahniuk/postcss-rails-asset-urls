@@ -1,50 +1,51 @@
-# PostCSS Plugin Boilerplate
+# PostCSS Rails Asset URLs
 
-<img align="right" width="135" height="95"
-     title="Philosopher’s stone, logo of PostCSS"
-     src="http://postcss.github.io/postcss/logo-leftp.png">
+PostCSS plugin to swap CSS URLs with the Rails SASS helper, `asset-url`. This is useful for CSS postprocessor compilation outside of the Rails pipeline when you still want to deploy assets through Rails. `asset-url` in the Rails pipeline will handle fingerprinting and asset paths for you as part of the normal Rails compilation.
 
-Boilerplate repoitory to start PostCSS plugin by few steps.
+## Installation
 
-1. Clone this reposity:
+Install via npm:
 
    ```sh
-  git clone https://github.com/postcss/postcss-plugin-boilerplate.git
+  npm install --save-dev postcss-rails-asset-urls
    ```
 
-2. Execute wizard script. it will ask you a few question and will fill all
-   files with your data.
+## Example
 
-    ```sh
-   ./postcss-plugin-boilerplate/start
-    ```
+  ```js
+  var postcss = require('postcss');
+  var railsAssetUrls = require('postcss-rails-asset-urls');
 
-3. Now it is repository of your plugin with clean Git history.
-   Create GitHub repositpory and push your project there.
+  var css = '@font-face {font-family:Test;src:url("test.woff") format("woff"),url("test.otf") format("otf")}';
+  console.log(postcss(railsAssetUrls()).process(css).css);
 
-4. Add your project to [Travis CI](https://travis-ci.org).
+  // => '@font-face {font-family:Test;src:asset-url("test.woff") format("woff"),asset-url("test.otf") format("otf")}'
+  ```
 
-5. Install npm packages:
+To use with [grunt-postcss](https://github.com/nDmitry/grunt-postcss "Grunt PostCSS"), add this to your Gruntfile:
 
-    ```sh
-   npm install
-    ```
+  ```js
+  postcss: {
+    options: {
+      processors: [
+        require('postcss-rails-asset-urls')()
+      ]
+    },
+    dist: {
+      src: 'dist/css/*.css'
+    }
+  }
+  ```
 
-6. Write some code to `index.js` and tests to `test/test.js`.
+## Contributing
 
-7. Check your code:
+Pull requests are welcome. If you add functionality, then please add unit tests
+to cover it.
 
-    ```sh
-   npm test
-    ```
+## License
 
-8. Add input and output CSS examples to `README.md`. Add options descriptions
-   if your plugin has them.
+MIT © Ryan Bahniuk
 
-9. Fill `CHANGELOG.md` with initial version and release it to npm.
-
-10. Fork [PostCSS](https://github.com/postcss/postcss), add your plugin to
-   [Plugins section](https://github.com/postcss/postcss#plugins) in `README.md`
-   and send a pull request.
-
-11. Follow [@PostCSS](https://twitter.com/postcss) to get latest updates.
+[ci]:      https://travis-ci.org/ryanbahniuk/postcss-rails-asset-urls
+[npm]:     http://badge.fury.io/js/postcss-discard-font-face
+[postcss]: https://github.com/postcss/postcss
