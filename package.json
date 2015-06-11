@@ -1,6 +1,6 @@
 {
   "name": "postcss-rails-asset-urls",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "PostCSS plugin that swaps out CSS urls for Rails asset helpers.",
   "keywords": [
     "postcss",
