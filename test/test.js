@@ -22,6 +22,15 @@ describe('index.js', function() {
     });
   });
 
+  describe('replaceWithAssetUrl', function() {
+    var matchGroup = '(images/test.png)';
+
+    it('should return asset-url prefixed to the matchGroup', function() {
+      var result = railsAssetUrls.replaceWithAssetUrl('match', matchGroup);
+      assert.equal(result, 'asset-url' + matchGroup);
+    });
+  });
+
   describe('isImage', function() {
     var images = [
       'test.png',
@@ -45,13 +54,23 @@ describe('index.js', function() {
   });
 
   describe('railsAssetUrls', function() {
-    it('should replace url calls with asset-url', function() {
-      var input = fs.readFileSync('./test/input.css', 'utf-8');
-      var expected = fs.readFileSync('./test/expected.css', 'utf-8');
+    var input = fs.readFileSync('./test/input.css', 'utf-8');
+    var expected3 = fs.readFileSync('./test/expected3.css', 'utf-8');
+    var expected4 = fs.readFileSync('./test/expected4.css', 'utf-8');
 
-      var out = postcss(railsAssetUrls()).process(input);
+    it('should replace url calls with asset-url if passed version 4.0.0', function() {
+      var out = postcss(railsAssetUrls('4.0.0')).process(input);
+      assert.equal(out.css, expected4);
+    });
 
-      assert.equal(out.css, expected, 'Output did not match the input.');
+    it('should replace url calls with asset-url if passed higher than version 4.0.0', function() {
+      var out = postcss(railsAssetUrls('5.0.0')).process(input);
+      assert.equal(out.css, expected4);
+    });
+
+    it('should replace url calls with font-url or image-url if passed lower than version 4.0.0', function() {
+      var out = postcss(railsAssetUrls('3.9.9')).process(input);
+      assert.equal(out.css, expected3);
     });
   });
 });
