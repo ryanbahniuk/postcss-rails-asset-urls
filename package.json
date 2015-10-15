@@ -16,10 +16,10 @@
     "url": "https://github.com/ryanbahniuk/postcss-rails-asset-urls.git"
   },
   "dependencies": {
-    "postcss": "^4.1.10"
+    "postcss": "^5.0.10"
   },
   "devDependencies": {
-    "mocha": "^2.2.4"
+    "mocha": "^2.3.3"
   },
   "scripts": {
     "test": "NODE_ENV=test mocha"
