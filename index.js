@@ -23,13 +23,13 @@ var RailsAssetUrls = postcss.plugin('postcss-rails-asset-urls', function (versio
 
   if (version.substring(0, 1) > 3) {
     return function(css) {
-      css.eachDecl(function(decl) {
+      css.walkDecls(function(decl) {
         decl.value = decl.value.replace(replacements, replaceWithAssetUrl);
       });
     };
   } else {
     return function(css) {
-      css.eachDecl(function(decl) {
+      css.walkDecls(function(decl) {
         if (decl.parent.name === 'font-face') {
           decl.value = decl.value.replace(replacements, replaceWithFontUrl);
         } else if (isImage(decl.value)) {
